@@ -9,7 +9,10 @@ export class Game {
 		this.running = false;
 	}
 
+	init() {}
+
 	start() {
+		this.init();
 		this.running = true;
 	}
 
@@ -19,8 +22,9 @@ export class Game {
 	}
 
 	setState(state) {
+		this.currentState.stop();
 		this.currentState = state;
-		this.currentState.init();
+		this.currentState.start();
 	}
 
 	getState() {
@@ -28,17 +32,17 @@ export class Game {
 	}
 
 	update(delta) {
-		if(this.currentState)
+		if(this.currentState && this.currentState.running)
 		this.currentState.update(delta);
 	}
 
 	render(delta) {
-		if(this.currentState)
+		if(this.currentState && this.currentState.running)
 		this.currentState.render(delta);
 	}
 
 	destroy() {
-		for(let state of this.states) {
+		for(let state of this.states.values()) {
 			state.destroy();
 		}
 	}
