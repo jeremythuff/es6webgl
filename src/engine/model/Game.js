@@ -7,9 +7,12 @@ export class Game {
 		this.states = new Map();
 		this.currentState = null;
 		this.running = false;
+		this.initialized = false;
 	}
 
-	init() {}
+	init() {
+		this.initialized = true;
+	}
 
 	start() {
 		this.init();
@@ -22,7 +25,7 @@ export class Game {
 	}
 
 	setState(state) {
-		this.currentState.stop();
+		if(this.currentState) this.currentState.stop();
 		this.currentState = state;
 		this.currentState.start();
 	}

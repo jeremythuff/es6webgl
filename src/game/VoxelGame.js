@@ -5,7 +5,11 @@ export class VoxelGame extends Game {
 	constructor() {
 		super();
 		this.states = states;
-		this.currentState = this.states.get("Intro");
+	}
+
+	init() {
+		this.setState(this.states.get("Intro"));
+		super.init();
 	}
 
 	update() {

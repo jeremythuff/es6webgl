@@ -5,4 +5,13 @@ export class Playing extends State{
 		super("Playing");
 	}
 
+	start() {
+		if(!this.initialized) this.init();
+		super.start();
+	}
+
+	init() {
+		super.init();
+	}
+
 }

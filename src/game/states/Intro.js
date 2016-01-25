@@ -5,4 +5,9 @@ export class Intro extends State{
 		super("Intro");
 	}
 
+	start() {
+		super.init();
+		super.start();
+	}
+
 }

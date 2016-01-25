@@ -2,15 +2,18 @@ export class State {
 	constructor(name) {
 		this.name = name;
 		this.running = false;
+		this.initialized = false;
 	}
 
-	init() {}
+	init() {
+		this.initialized = true;
+	}
 
 	start() {
 		this.running = true;
 	}
 
-	start() {
+	stop() {
 		this.running = false;
 	}
 
